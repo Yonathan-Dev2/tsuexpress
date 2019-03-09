@@ -16,8 +16,6 @@ import android.widget.TextView;
 public class cuadro_dialogo {
 
 
-
-
     public cuadro_dialogo(Context Contexto, String msj) {
 
         final Dialog dialogo = new Dialog(Contexto);
