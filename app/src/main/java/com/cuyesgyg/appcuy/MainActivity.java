@@ -123,8 +123,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         return preferences.getBoolean(PREFERENCES_ESTADO_SESION,false);
     }
 
-
-
     @Override
     public void onErrorResponse(VolleyError error) {
 
