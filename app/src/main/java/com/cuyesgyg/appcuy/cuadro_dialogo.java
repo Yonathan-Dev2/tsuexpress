@@ -31,6 +31,7 @@ public class cuadro_dialogo {
         final Button cerrar = (Button)dialogo.findViewById(R.id.btncerrar);
 
 
+
         cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
