@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             guardarpreferencia();
         }
 
-        Toast.makeText(getBaseContext(),"No se puede conectar con el servidor "+error.toString(), Toast.LENGTH_SHORT).show();
+        new cuadro_dialogo(contexto, "No se puede conectar con el servidor");
         Log.i("Error",error.toString());
         ingresar.setEnabled(true);
         pd.dismiss();
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
             pd.dismiss();
 
-            new cuadro_dialogo(contexto);
+            new cuadro_dialogo(contexto, "El usuario y/o contraseña son incorrectos");
 
         }
     }

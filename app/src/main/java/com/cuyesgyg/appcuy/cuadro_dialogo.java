@@ -18,7 +18,7 @@ public class cuadro_dialogo {
 
 
 
-    public cuadro_dialogo(Context Contexto) {
+    public cuadro_dialogo(Context Contexto, String msj) {
 
         final Dialog dialogo = new Dialog(Contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -26,8 +26,8 @@ public class cuadro_dialogo {
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         dialogo.setContentView(R.layout.cuadro_dialogo);
 
-        //TextView mensaje = (TextView)dialogo.findViewById(R.id.txtmensaje);
-
+        TextView mensaje = (TextView)dialogo.findViewById(R.id.txtalerta);
+        mensaje.setText(msj);
         final Button cerrar = (Button)dialogo.findViewById(R.id.btncerrar);
 
 
