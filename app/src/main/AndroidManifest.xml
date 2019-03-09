@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cuyesgyg.appcuy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    ;
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SIGC-MÓVIL"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".registrar_reproductores"
+            android:label="REGISTO REPRODUCTORES" />
+        <activity
+            android:name=".menu"
+            android:label="MENU"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".registrar_termohigrometro"
+            android:label="REGISTO TERMOHIGROMETRO" />
+        <activity
+            android:name=".consu_reproductores"
+            android:label="REPORTE REPRODUCTORES" />
+        <activity
+            android:name=".ingresos"
+            android:label="REGISTO INGRESOS" />
+        <activity
+            android:name=".gastos"
+            android:label="REGISTRO GASTOS" />
+        <activity
+            android:name=".consu_comercializacion"
+            android:label="REPORTE BALANCE" />
+        <activity
+            android:name=".registrar_crias"
+            android:label="REGISTRO CRIAS" />
+        <activity
+            android:name=".reporte_nacimientos"
+            android:label="REPORTE CRIAS" />
+        <activity android:name=".nacimiento_list" />
+        <activity
+            android:name=".registrar_crecimiento"
+            android:label="REGISTRO CRECIMIENTO" />
+        <activity
+            android:name=".Consulta_crecimiento"
+            android:label="REPORTE CRECIMIENTO" />
+        <activity
+            android:name=".consulta_estimacion"
+            android:label="REPORTE ESTIMACION DE " />
+        <activity
+            android:name=".venta_cuyes"
+            android:label="REPORTE VENTA CCUYES" />
+        <activity
+            android:name=".inventario"
+            android:label="REGISTRO INVENTARIO" />
+        <activity
+            android:name=".reporte_total"
+            android:label="REPORTE CUYES" />
+        <activity android:name=".registrar_forraje"
+            android:label="REGISTRO FORRAJE"
+            ></activity>
+    </application>
+
+</manifest>

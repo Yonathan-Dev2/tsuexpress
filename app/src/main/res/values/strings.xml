@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">AppCuy</string>
+
+    <string-array name="sexo">
+        <item>SEXO</item>
+        <item>HEMBRA</item>
+        <item>MACHO</item>
+    </string-array>
+
+    <string-array name="raza">
+        <item>RAZA</item>
+        <item>ANDINA</item>
+        <item>CALIFORNIA</item>
+        <item>INTI</item>
+        <item>MANTARO</item>
+        <item>PERU</item>
+    </string-array>
+
+    <string-array name="raza_consu">
+        <item>RAZA</item>
+        <item>ANDINA</item>
+        <item>CALIFORNIA</item>
+        <item>INTI</item>
+        <item>MANTARO</item>
+        <item>PERU</item>
+        <item>TODOS</item>
+    </string-array>
+
+    <string-array name="estado_cri">
+        <item>ESTADO</item>
+        <item>DESTETADOS</item>
+        <item>MUERTOS</item>
+        <item>NACIDOS</item>
+    </string-array>
+
+    <string-array name="sexo_consu">
+        <item>SEXO</item>
+        <item>HEMBRA</item>
+        <item>MACHO</item>
+        <item>TODOS</item>
+
+    </string-array>
+
+    <string-array name="estado_cuy">
+        <item>ESTADO</item>
+        <item>MUERTO</item>
+        <item>VIVO</item>
+        <item>RETIRADO</item>
+        <item>TRASLADADO</item>
+    </string-array>
+
+    <string-array name="control">
+        <item>ESTADO</item>
+        <item>DESTETADOS</item>
+        <item>MUERTOS</item>
+        <item>VIVOS</item>
+    </string-array>
+
+
+    <string-array name="poza">
+        <item>POZA</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>TODOS</item>
+    </string-array>
+
+    <string-array name="ingresos">
+        <item>INGRESO</item>
+        <item>CUY CARCASA</item>
+        <item>CUY CHACTADO</item>
+        <item>CUY GAZAPO</item>
+        <item>CUY PADRILLO</item>
+        <item>CUY REPRODUCTOR</item>
+        <item>CUY VIVO</item>
+        <item>ESTIERCOL</item>
+        <item>CAPITAL</item>
+        <item>OTRO</item>
+
+    </string-array>
+
+    <string-array name="gastos">
+        <item>GASTOS</item>
+        <item>ALIMENTO BALANCEADO-CRECIMIENTO</item>
+        <item>ALIMENTO BALANCEADO-ENGORDE</item>
+        <item>ALIMENTO BALANCEADO-MADRE</item>
+        <item>ALMUERZO</item>
+        <item>BEBEDERO</item>
+        <item>CENA</item>
+        <item>CHALA</item>
+        <item>CORTADOR DE ALFALFA</item>
+        <item>COMEDERO</item>
+        <item>CUY REPRODUCTOR</item>
+        <item>DESAYUNO</item>
+        <item>FORRAJERA</item>
+        <item>GASOLINA</item>
+        <item>GAZAPERA</item>
+        <item>PAGO DE AGUA</item>
+        <item>PAGO DE LUZ</item>
+        <item>PAGO DE PERSONAL</item>
+        <item>PASAJE</item>
+        <item>SOGA DE ALFALFA</item>
+        <item>TABLA DE ALFALFA</item>
+        <item>TRANSPORTE DE ALFALFA</item>
+        <item>TRANSPORTE DE ALIMENTO BALANCEADO</item>
+        <item>TRANSPORTE DE CUYES</item>
+        <item>MEDICAMENTO</item>
+        <item>OTRO</item>
+    </string-array>
+
+    <string-array name="mes">
+        <item>MES</item>
+        <item>ENERO</item>
+        <item>FEBRERO</item>
+        <item>MARZO</item>
+        <item>ABRIL</item>
+        <item>MAYO</item>
+        <item>JUNIO</item>
+        <item>JULIO</item>
+        <item>AGOSTO</item>
+        <item>SETIEMBRE</item>
+        <item>OCTUBRE</item>
+        <item>NOVIEMBRE</item>
+        <item>DICIEMBRE</item>
+        <item>TODOS</item>
+    </string-array>
+
+    <string-array name="ano">
+        <item>AÑO</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>TODOS</item>
+    </string-array>
+
+    <string-array name="bien">
+        <item>BIEN</item>
+        <item>COMEDERO TOLVA</item>
+        <item>COMEDERO CIRCULAR</item>
+        <item>BEBEDERO</item>
+        <item>FORRAJERA</item>
+        <item>GAZAPERA</item>
+    </string-array>
+
+    <string-array name="estado_bien">
+        <item>ESTADO</item>
+        <item>BUENO</item>
+        <item>MALO</item>
+        <item>REGULAR</item>
+    </string-array>
+
+    <string name="title_activity_menu">Menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_temperatura">temperatura</string>
+    <string name="title_activity_nacimientos_list">nacimientos_list</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

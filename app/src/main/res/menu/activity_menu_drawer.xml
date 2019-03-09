@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cerrar_sesion"
+        android:icon="@drawable/apagar"
+        android:title="CERRAR SESIÓN" />
+
+    <item android:title="REGISTRO PRODUCCION">
+        <menu>
+    <group android:checkableBehavior="single">
+
+         <item
+            android:id="@+id/mencontrol_nacimientos"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="CRIAS" />
+        <item
+            android:id="@+id/mencrecimiento"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="RECRIAS" />
+        <item
+            android:id="@+id/menreproductores"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="REPRODUCTORES" />
+
+    </group>
+        </menu>
+    </item>
+
+    <item android:title="REGISTRO TECNICO">
+        <menu>
+            <item
+                android:id="@+id/menforraje"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="FORRAJE" />
+            <item
+                android:id="@+id/mengastos"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="GASTOS" />
+            <item
+                android:id="@+id/meningresos"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="INGRESOS" />
+            <item
+                android:id="@+id/meninventario"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="INVENTARIO" />
+            <item
+                android:id="@+id/mentermohigrometro"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="TERMOHIGROMETRO" />
+
+        </menu>
+    </item>
+
+
+    <item android:title="REPORTES">
+        <menu>
+             <item
+                android:id="@+id/consu_comercializacion"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="BALANCE" />
+            <item
+                android:id="@+id/consu_control_nacimientos"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="CRIAS" />
+
+            <item
+                android:id="@+id/consu_crecimiento"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="CRECIMIENTO" />
+
+            <item
+                android:id="@+id/consu_estimacion"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="ESTIMACION" />
+
+            <item
+                android:id="@+id/consu_reproductores"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="REPRODUCTORES" />
+
+            <item
+                android:id="@+id/consu_total_cuyes"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="TOTAL CUYES" />
+
+            <item
+                android:id="@+id/venta_cuyes"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="VENTA CUYES" />
+
+        </menu>
+    </item>
+
+
+
+</menu>
