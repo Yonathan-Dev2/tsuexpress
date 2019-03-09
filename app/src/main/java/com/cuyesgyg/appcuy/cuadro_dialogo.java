@@ -37,5 +37,4 @@ public class cuadro_dialogo {
         dialogo.show();
     }
 
-
 }
