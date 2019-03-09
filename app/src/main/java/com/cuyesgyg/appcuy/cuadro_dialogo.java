@@ -17,7 +17,6 @@ public class cuadro_dialogo {
 
     public cuadro_dialogo(Context Contexto, String msj) {
 
-
         final Dialog dialogo = new Dialog(Contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogo.setCancelable(false);
