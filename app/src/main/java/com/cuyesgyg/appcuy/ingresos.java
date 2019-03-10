@@ -51,8 +51,6 @@ public class ingresos extends AppCompatActivity implements Response.Listener<JSO
 
         request= Volley.newRequestQueue(getBaseContext());
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
-
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

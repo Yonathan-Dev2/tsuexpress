@@ -51,8 +51,6 @@ public class inventario extends AppCompatActivity implements Response.Listener<J
 
         request= Volley.newRequestQueue(getBaseContext());
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
-
         guardar_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

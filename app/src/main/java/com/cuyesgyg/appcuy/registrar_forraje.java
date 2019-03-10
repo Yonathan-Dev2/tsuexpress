@@ -50,8 +50,6 @@ public class registrar_forraje extends AppCompatActivity implements Response.Lis
             }
         });
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ; // Recepciona el login del Main principal
-
 
     }
 

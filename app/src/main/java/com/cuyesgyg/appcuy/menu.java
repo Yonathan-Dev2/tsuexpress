@@ -1,5 +1,6 @@
 package com.cuyesgyg.appcuy;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_recria;
@@ -22,13 +25,14 @@ public class menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String v_login;
-    private String v_ape_paterno;
-    private String v_ape_materno;
-    private String v_nombres;
+    private String v_nomb_apel;
+    private String v_correo;
 
     public static final String STRING_PREFERENCES = "DatosUsuario";
     public static final String PREFERENCES_ESTADO_SESION = "EstadoSesion";
 
+    TextView usario_nav, correo_nav;
+    View hview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class menu extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        cargarpreferencias();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,12 +50,14 @@ public class menu extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        hview = navigationView.getHeaderView(0);
+        usario_nav = (TextView) hview.findViewById(R.id.txtnombre_user);
+        correo_nav = (TextView) hview.findViewById(R.id.txtcorreo_user);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*v_login = getIntent().getExtras().getString("parametro"); // Recepciona el login del Main principal
-        v_ape_paterno = getIntent().getExtras().getString("ape_paterno");
-        v_ape_materno = getIntent().getExtras().getString("ape_materno");
-        v_nombres = getIntent().getExtras().getString("nombres");*/
+
+        correo_nav.setText(v_correo);
+        usario_nav.setText(v_nomb_apel);
 
     }
 
@@ -112,17 +119,14 @@ public class menu extends AppCompatActivity
 
         } else if (id == R.id.meningresos) {
             Intent i = new Intent(getApplicationContext(),ingresos.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
 
         } else if (id == R.id.mengastos) {
             Intent i = new Intent(getApplicationContext(),gastos.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
 
         }else if (id == R.id.mentermohigrometro) {
             Intent i = new Intent(getApplicationContext(),registrar_termohigrometro.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         }
         else if (id == R.id.mencontrol_nacimientos) {
@@ -134,7 +138,6 @@ public class menu extends AppCompatActivity
         }
         else if (id == R.id.consu_reproductores) {
             Intent i = new Intent(getApplicationContext(), consu_reproductores.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
 
         } else if (id == R.id.consu_crecimiento) {
@@ -147,28 +150,22 @@ public class menu extends AppCompatActivity
         }
         else if (id == R.id.consu_comercializacion) {
             Intent i = new Intent(getApplicationContext(), consu_comercializacion.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         } else if (id == R.id.consu_control_nacimientos) {
             Intent i = new Intent(getApplicationContext(), reporte_nacimientos.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         } else if (id == R.id.venta_cuyes) {
             Intent i = new Intent(getApplicationContext(), venta_cuyes.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         } else if (id == R.id.meninventario) {
             Intent i = new Intent(getApplicationContext(), inventario.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         } else if (id == R.id.consu_total_cuyes) {
             Intent i = new Intent(getApplicationContext(), reporte_total.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         }
         else if (id == R.id.menforraje) {
             Intent i = new Intent(getApplicationContext(), registrar_forraje.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
             startActivity(i);
         }
         else if (id == R.id.cerrar_sesion) {
@@ -176,6 +173,11 @@ public class menu extends AppCompatActivity
             startActivity(i);
             guardarsesion();
             finish();
+        }
+
+        else if (id == R.id.inicio) {
+            Intent i = new Intent(getApplicationContext(), menu.class);
+            startActivity(i);
         }
 
 
@@ -193,6 +195,19 @@ public class menu extends AppCompatActivity
     public void guardarsesion(){
         SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCES, MODE_PRIVATE);
         preferences.edit().putBoolean(PREFERENCES_ESTADO_SESION,false).apply();
+    }
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_nomb_apel = nom_ape;
+        v_correo = corr;
     }
 
 

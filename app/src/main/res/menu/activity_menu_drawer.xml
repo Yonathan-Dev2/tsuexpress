@@ -2,9 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/inicio"
+        android:title="INICIO" />
+    <item
         android:id="@+id/cerrar_sesion"
         android:icon="@drawable/apagar"
         android:title="CERRAR SESIÓN" />
+    <item
+        android:id="@+id/soporte_tecnico"
+        android:icon="@drawable/celular"
+        android:title="SOPORTE TECNICO" />
 
     <item android:title="REGISTRO PRODUCCION">
         <menu>

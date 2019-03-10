@@ -44,8 +44,6 @@ public class registrar_termohigrometro extends AppCompatActivity implements Resp
         humedad=(EditText)(findViewById(R.id.edthumedad));
         guardar=(Button)(findViewById(R.id.btnguardar_re));
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
-
         temp_celsius.requestFocus();
 
         request= Volley.newRequestQueue(getBaseContext());

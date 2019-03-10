@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     Button ingresar;
     EditText login, clave;
-    String v_login, v_clave, v_estado;
+    String v_login, v_clave, v_estado, v_correo, v_nomb_apel;
     CheckBox recordar;
     public static final String STRING_PREFERENCES = "DatosUsuario";
     public static final String PREFERENCES_ESTADO_SESION = "EstadoSesion";
@@ -87,8 +87,10 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     private void cargarpreferencias() {
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
 
-        String user = preferences.getString("user","");
+        String user = preferences.getString("log","");
         String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
         Boolean check = preferences.getBoolean("check",false);
 
         login.setText(user);
@@ -101,11 +103,15 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         String usuario = login.getText().toString();
         String contraseña = clave.getText().toString();
+        String nombres_apellidos = v_nomb_apel;
+        String correo = v_correo;
         Boolean mar = recordar.isChecked();
 
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("user", usuario);
+        editor.putString("log", usuario);
         editor.putString("pass", contraseña);
+        editor.putString("corr",correo);
+        editor.putString("nom_ape",nombres_apellidos);
         editor.putBoolean("check",mar);
 
         editor.commit();
@@ -152,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             miUsuario.setApe_paterno(jsonObject.optString("cApe_paterno"));
             miUsuario.setApe_materno(jsonObject.optString("cAp_materno"));
             miUsuario.setNombres(jsonObject.optString("cNombres"));
-
+            miUsuario.setCorreo(jsonObject.optString("cCorreo"));
         }
         catch (JSONException e){
             e.printStackTrace();
@@ -160,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
         v_clave=miUsuario.getClave();
         v_login=miUsuario.getLogin();
+        v_correo=miUsuario.getCorreo();
+        v_nomb_apel=miUsuario.getNombres()+" "+miUsuario.getApe_paterno()+" "+miUsuario.getApe_materno();
         v_estado=miUsuario.getEstado();
 
         if(v_estado.equalsIgnoreCase("Activo")){
@@ -178,10 +186,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             }
 
             Intent i = new Intent(getApplicationContext(), menu.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
-            i.putExtra("ape_paterno", miUsuario.getApe_paterno());
-            i.putExtra("ape_materno", miUsuario.getApe_materno());
-            i.putExtra("nombres", miUsuario.getNombres());
             startActivity(i);
             finish();
 

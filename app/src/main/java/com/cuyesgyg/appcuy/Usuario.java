@@ -11,6 +11,15 @@ public class Usuario {
     private String ape_paterno;
     private String ape_materno;
     private String nombres;
+    private String correo;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
     public String getApe_paterno() {
         return ape_paterno;

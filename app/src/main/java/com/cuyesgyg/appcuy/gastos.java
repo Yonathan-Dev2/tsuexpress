@@ -50,8 +50,6 @@ public class gastos extends AppCompatActivity implements Response.Listener<JSONO
 
         request= Volley.newRequestQueue(getBaseContext());
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
-
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
