@@ -13,21 +13,103 @@
 
         <LinearLayout
             android:id="@+id/lny_1"
-            android:layout_width="277dp"
-            android:layout_height="246dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
+            android:layout_width="272dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@layout/border"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+
+
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.498"
-            android:background="@layout/border"
-            ></LinearLayout>
+            tools:layout_editor_absoluteX="57dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@layout/border"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imgcelular_sistemas"
+                        android:layout_width="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@+id/textView7"
+                        android:layout_toStartOf="@+id/textView7"
+                        app:srcCompat="@drawable/telefono" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="143dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="42dp"
+                        android:layout_marginRight="42dp"
+                        android:text="Responsable de Sistemas"
+                        android:textAlignment="center" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.09"
+                    android:background="@layout/border">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="143dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="23dp"
+                        android:layout_marginStart="23dp"
+                        android:layout_toEndOf="@+id/imgcelular_produccion"
+                        android:layout_toRightOf="@+id/imgcelular_produccion"
+                        android:layout_weight="1"
+                        android:text="Responsable de Producción"
+                        android:textAlignment="center" />
+
+                    <ImageButton
+                        android:id="@+id/imgcelular_produccion"
+                        android:layout_width="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginStart="29dp"
+                        android:layout_weight="0.09"
+                        app:srcCompat="@drawable/telefono" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
