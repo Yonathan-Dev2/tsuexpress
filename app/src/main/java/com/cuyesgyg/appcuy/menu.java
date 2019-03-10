@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_recria;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_reproductor;
+import com.cuyesgyg.appcuy.Fragmentos.Fragmento_soporte;
 
 public class menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -190,6 +191,10 @@ public class menu extends AppCompatActivity
         else if (id == R.id.inicio) {
             Intent i = new Intent(getApplicationContext(), menu.class);
             startActivity(i);
+        }
+
+        else if (id == R.id.soporte_tecnico) {
+            CargarFragmento(new Fragmento_soporte());
         }
 
 
