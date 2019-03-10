@@ -10,23 +10,24 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by Yonathan on 07/03/2019.
+ * Created by Yonathan on 10/03/2019.
  */
 
-public class cuadro_dialogo {
+public class cuadro_soporte {
 
-    public cuadro_dialogo(Context Contexto, String msj) {
+    public cuadro_soporte(Context Contexto, String numero) {
 
 
         final Dialog dialogo = new Dialog(Contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogo.setCancelable(false);
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialogo.setContentView(R.layout.cuadro_dialogo);
+        dialogo.setContentView(R.layout.cuadro_soporte);
 
-        TextView mensaje = (TextView)dialogo.findViewById(R.id.txtalerta);
-        mensaje.setText(msj);
-        final Button cerrar = (Button)dialogo.findViewById(R.id.btncerrar);
+        TextView numerot = (TextView)dialogo.findViewById(R.id.txtnumero_llamar);
+        numerot.setText(numero);
+        final Button cerrar = (Button)dialogo.findViewById(R.id.btncancelar_llamar);
+        final Button llamar = (Button)dialogo.findViewById(R.id.btnaceptar_llamar);
 
         cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +36,14 @@ public class cuadro_dialogo {
             }
         });
 
+        llamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogo.dismiss();
+            }
+        });
+
+
         dialogo.show();
     }
-
 }

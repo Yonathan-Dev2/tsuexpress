@@ -197,7 +197,6 @@ public class menu extends AppCompatActivity
             CargarFragmento(new Fragmento_soporte());
         }
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
