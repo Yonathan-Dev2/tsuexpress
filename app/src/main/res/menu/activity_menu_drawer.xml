@@ -54,26 +54,17 @@
     </item>
 
 
-    <item android:title="REPORTES">
+    <item android:title="REPORTES PRODUCCION">
         <menu>
-             <item
-                android:id="@+id/consu_comercializacion"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="BALANCE" />
+
             <item
                 android:id="@+id/consu_control_nacimientos"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="CRIAS" />
-
             <item
                 android:id="@+id/consu_crecimiento"
                 android:icon="@android:drawable/ic_menu_search"
-                android:title="CRECIMIENTO" />
-
-            <item
-                android:id="@+id/consu_estimacion"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="ESTIMACION" />
+                android:title="RECRIA" />
 
             <item
                 android:id="@+id/consu_reproductores"
@@ -85,6 +76,20 @@
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="TOTAL CUYES" />
 
+        </menu>
+    </item>
+
+
+    <item android:title="REPORTES TECNICOS">
+        <menu>
+            <item
+                android:id="@+id/consu_comercializacion"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="BALANCE" />
+            <item
+                android:id="@+id/consu_estimacion"
+                android:icon="@android:drawable/ic_menu_search"
+                android:title="ESTIMACION" />
             <item
                 android:id="@+id/venta_cuyes"
                 android:icon="@android:drawable/ic_menu_search"
