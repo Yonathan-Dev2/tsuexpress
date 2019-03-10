@@ -2,6 +2,7 @@ package com.cuyesgyg.appcuy.Fragmentos;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -60,6 +61,8 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
         vista= inflater.inflate(R.layout.fragmento_crias, container, false);
         guardar = (Button)vista.findViewById(R.id.btnguardar_re);
+
+        cargarpreferencias();
 
         poza = (EditText)vista.findViewById(R.id.edtpoza_re);
         cantidad = (EditText)vista.findViewById(R.id.edtcantidad);
@@ -269,6 +272,21 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
         }
 
     }
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_login = user;
+
+    }
+
+
 
 
 }

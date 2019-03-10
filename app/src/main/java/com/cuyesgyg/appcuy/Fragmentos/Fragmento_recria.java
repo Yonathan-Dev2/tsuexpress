@@ -1,6 +1,8 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -60,6 +62,8 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        cargarpreferencias();
+
         vista=inflater.inflate(R.layout.fragmento_recria, container, false);
 
         poza = (EditText)vista.findViewById(R.id.edtpoza_crec);
@@ -82,8 +86,6 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         limpiar.setEnabled(false);
         aux=0;
         recu_sexo="";
-
-        //v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
 
 
         guardar.setOnClickListener(new View.OnClickListener() {
@@ -394,6 +396,19 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
         }
 
+
+    }
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_login = user;
 
     }
 

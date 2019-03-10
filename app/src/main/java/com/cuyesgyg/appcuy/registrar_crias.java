@@ -1,5 +1,7 @@
 package com.cuyesgyg.appcuy;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +44,8 @@ public class registrar_crias extends AppCompatActivity implements Response.Liste
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_crias);
 
+        cargarpreferencias();
+
         poza = (EditText)(findViewById(R.id.edtpoza_re));
         cantidad = (EditText)(findViewById(R.id.edtcantidad));
         fecha_control = (EditText)(findViewById(R.id.edtfecha_control));
@@ -56,7 +60,6 @@ public class registrar_crias extends AppCompatActivity implements Response.Liste
         poza.requestFocus();
         request= Volley.newRequestQueue(getBaseContext());
 
-        v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
 
         limpiar.setEnabled(false);
 
@@ -242,5 +245,22 @@ public class registrar_crias extends AppCompatActivity implements Response.Liste
             guardar.setEnabled(true);
         }
     }
+
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_login = user;
+
+    }
+
+
+
 
 }
