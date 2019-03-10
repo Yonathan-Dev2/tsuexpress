@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_recria;
@@ -27,6 +28,7 @@ public class menu extends AppCompatActivity
     private String v_login;
     private String v_nomb_apel;
     private String v_correo;
+    private String v_cargo;
 
     public static final String STRING_PREFERENCES = "DatosUsuario";
     public static final String PREFERENCES_ESTADO_SESION = "EstadoSesion";
@@ -55,9 +57,17 @@ public class menu extends AppCompatActivity
         correo_nav = (TextView) hview.findViewById(R.id.txtcorreo_user);
         navigationView.setNavigationItemSelectedListener(this);
 
-
         correo_nav.setText(v_correo);
         usario_nav.setText(v_nomb_apel);
+
+        if (v_cargo.equalsIgnoreCase("APO")){
+            //navigationView.getMenu().findItem(R.id.mengastos).setVisible(false);
+
+            navigationView.getMenu().setGroupVisible(R.id.grupo_regi_tecn,false);
+            navigationView.getMenu().setGroupVisible(R.id.grupo_repo_prod, false);
+            navigationView.getMenu().setGroupVisible(R.id.grupo_repo_tecn, false);
+        }
+
 
     }
 
@@ -77,6 +87,8 @@ public class menu extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
+
+
         return true;
     }
 
@@ -204,10 +216,12 @@ public class menu extends AppCompatActivity
         String pass = preferences.getString("pass","");
         String nom_ape = preferences.getString("nom_ape","");
         String corr = preferences.getString("corr","");
+        String carg = preferences.getString("car","");
         Boolean check = preferences.getBoolean("check",false);
 
         v_nomb_apel = nom_ape;
         v_correo = corr;
+        v_cargo = carg;
     }
 
 

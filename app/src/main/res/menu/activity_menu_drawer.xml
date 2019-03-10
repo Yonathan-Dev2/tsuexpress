@@ -17,7 +17,7 @@
 
     <item android:title="REGISTRO PRODUCCION">
         <menu>
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single" android:id="@+id/grupo_regi_pro">
 
          <item
             android:id="@+id/mencontrol_nacimientos"
@@ -36,7 +36,10 @@
         </menu>
     </item>
 
+
     <item android:title="REGISTRO TECNICO">
+        <group android:checkableBehavior="single" android:id="@+id/grupo_regi_tecn">
+
         <menu>
             <item
                 android:id="@+id/menforraje"
@@ -60,10 +63,13 @@
                 android:title="TERMOHIGROMETRO" />
 
         </menu>
+        </group>
     </item>
 
 
     <item android:title="REPORTES PRODUCCION">
+        <group android:checkableBehavior="single" android:id="@+id/grupo_repo_prod">
+
         <menu>
 
             <item
@@ -86,10 +92,12 @@
                 android:title="TOTAL CUYES" />
 
         </menu>
+        </group>
     </item>
 
 
     <item android:title="REPORTES TECNICOS">
+        <group android:checkableBehavior="single" android:id="@+id/grupo_repo_tecn">
         <menu>
             <item
                 android:id="@+id/consu_comercializacion"
@@ -105,6 +113,7 @@
                 android:title="VENTA CUYES" />
 
         </menu>
+        </group>
     </item>
 
 

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     Button ingresar;
     EditText login, clave;
-    String v_login, v_clave, v_estado, v_correo, v_nomb_apel;
+    String v_login, v_clave, v_estado, v_correo, v_nomb_apel, v_cargo;
     CheckBox recordar;
     public static final String STRING_PREFERENCES = "DatosUsuario";
     public static final String PREFERENCES_ESTADO_SESION = "EstadoSesion";
@@ -90,12 +90,12 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         String pass = preferences.getString("pass","");
         String nom_ape = preferences.getString("nom_ape","");
         String corr = preferences.getString("corr","");
+        String carg = preferences.getString("car","");
         Boolean check = preferences.getBoolean("check",false);
 
         login.setText(user);
         clave.setText(pass);
         recordar.setChecked(check);
-
     }
 
     private void guardarpreferencia() {
@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         String contraseña = clave.getText().toString();
         String nombres_apellidos = v_nomb_apel;
         String correo = v_correo;
+        String cargo = v_cargo;
         Boolean mar = recordar.isChecked();
 
         SharedPreferences.Editor editor = preferences.edit();
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         editor.putString("pass", contraseña);
         editor.putString("corr",correo);
         editor.putString("nom_ape",nombres_apellidos);
+        editor.putString("car",cargo);
         editor.putBoolean("check",mar);
 
         editor.commit();
@@ -158,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             miUsuario.setApe_materno(jsonObject.optString("cAp_materno"));
             miUsuario.setNombres(jsonObject.optString("cNombres"));
             miUsuario.setCorreo(jsonObject.optString("cCorreo"));
+            miUsuario.setCargo(jsonObject.optString("cCargo"));
         }
         catch (JSONException e){
             e.printStackTrace();
@@ -167,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         v_login=miUsuario.getLogin();
         v_correo=miUsuario.getCorreo();
         v_nomb_apel=miUsuario.getNombres()+" "+miUsuario.getApe_paterno()+" "+miUsuario.getApe_materno();
+        v_cargo = miUsuario.getCargo();
         v_estado=miUsuario.getEstado();
 
         if(v_estado.equalsIgnoreCase("Activo")){

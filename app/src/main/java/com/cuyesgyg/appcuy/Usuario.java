@@ -12,6 +12,7 @@ public class Usuario {
     private String ape_materno;
     private String nombres;
     private String correo;
+    private String cargo;
 
     public String getCorreo() {
         return correo;
@@ -19,6 +20,14 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getApe_paterno() {
