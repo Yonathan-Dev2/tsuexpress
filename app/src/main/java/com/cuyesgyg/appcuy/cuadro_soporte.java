@@ -51,15 +51,10 @@ public class cuadro_soporte {
         llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Uri number = Uri.parse("tel:"+numero);
                 Intent callIntent = new Intent(Intent.ACTION_DIAL,number);
                 Contexto.startActivity(callIntent);
-
             }
-
-
-
 
         });
 
