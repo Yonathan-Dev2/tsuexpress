@@ -2,12 +2,21 @@ package com.cuyesgyg.appcuy;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by Yonathan on 10/03/2019.
@@ -15,8 +24,11 @@ import android.widget.TextView;
 
 public class cuadro_soporte {
 
-    public cuadro_soporte(Context Contexto, String numero) {
+    private final cuadro_soporte contexto;
 
+    public cuadro_soporte(final Context Contexto, final String numero) {
+
+        contexto = this;
 
         final Dialog dialogo = new Dialog(Contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -39,8 +51,23 @@ public class cuadro_soporte {
         llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogo.dismiss();
+
+                /*String phoneNo =numero;
+                if(!TextUtils.isEmpty(phoneNo)) {
+                    String dial = phoneNo;
+                    startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+                }*/
+
+
+                /*Intent i = new Intent(android.content.Intent.ACTION_CALL,
+                        Uri.parse("tel:0000000"));
+                startActivity(Contexto, i, Bundle.EMPTY);*/
+
             }
+
+
+
+
         });
 
 

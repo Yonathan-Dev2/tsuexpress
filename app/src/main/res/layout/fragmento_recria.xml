@@ -20,8 +20,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:background="@layout/border"
             android:ems="10"
-            android:hint="POZA"
+            android:hint=" POZA"
             android:inputType="number"
             app:layout_constraintBottom_toTopOf="@+id/spnsexo_crec"
             app:layout_constraintHorizontal_bias="0.488"
@@ -32,30 +33,32 @@
             android:id="@+id/edtcantidad_crec"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:background="@layout/border"
             android:ems="10"
-            android:hint="CANTIDAD"
+            android:hint=" CANTIDAD"
             android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/edtfechaini_crec"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtfechaini_crec" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Spinner
             android:id="@+id/spnsexo_crec"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:background="@layout/border"
             android:entries="@array/sexo"
             android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/edtcantidad_crec"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtcantidad_crec" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/btnguardar_crec"
@@ -78,31 +81,32 @@
             android:id="@+id/edtfechaini_crec"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:background="@layout/border"
             android:ems="10"
-            android:hint="FECHA INICIO DE CRECIMIENTO"
+            android:hint=" FECHA INICIO DE RECRIA"
             android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/edtpeso"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtpeso" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <EditText
             android:id="@+id/edtfechafin_crec"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="22dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:background="@layout/border"
             android:ems="10"
-            android:hint="FECHA FIN DE CRECIMIENTO"
+            android:hint=" FECHA FIN DE RECRIA"
             android:inputType="textPersonName"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintBottom_toTopOf="@+id/btnbuscar_crec"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnbuscar_crec" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/btnbuscar_crec"
@@ -159,15 +163,16 @@
             android:id="@+id/edtpeso"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:background="@layout/border"
             android:ems="10"
-            android:hint="PESO (g)"
+            android:hint=" PESO (g)"
             android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/edtfechafin_crec"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtfechafin_crec" />
+            app:layout_constraintRight_toRightOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

@@ -4,9 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +26,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +33,7 @@ import android.view.ViewGroup;
 
 import com.cuyesgyg.appcuy.Consulta_control_nacimientos;
 import com.cuyesgyg.appcuy.R;
+import com.cuyesgyg.appcuy.cuadro_dialogo;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,9 +53,13 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
     private ProgressDialog pd = null;
 
+    Fragmento_crias contexto;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        contexto = this;
 
         vista= inflater.inflate(R.layout.fragmento_crias, container, false);
         guardar = (Button)vista.findViewById(R.id.btnguardar_re);
@@ -76,8 +78,6 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
         fecha_control.setEnabled(false);
         poza.requestFocus();
         request= Volley.newRequestQueue(getContext());
-
-        //v_login = String.valueOf(getIntent().getExtras().getString("parametro")) ;
 
         limpiar.setEnabled(false);
 
@@ -167,7 +167,7 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
             request.add(jsonObjectRequest);
         }
         else{
-            Toast.makeText(getContext(),"Debes ingresar todo los datos", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
         }
 
     }
@@ -175,8 +175,7 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
     private void buscarnacimientos() {
         if (poza.getText().toString().equalsIgnoreCase("") ){
-            Toast.makeText(getContext(),"Debes ingresar el numero de poza", Toast.LENGTH_SHORT).show();
-
+            new cuadro_dialogo(getContext(), "Debes ingresar el numero de poza");
         }
         else{
             String url = "https://cuyesgyg.com/intranet/webservices/consultar_control.php?poza="+poza.getText().toString();
@@ -190,8 +189,7 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getContext(),"No se pudo conectar con el servidor "+error.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("Error",error.toString());
+        new cuadro_dialogo(getContext(), "No se pudo conectar con el servidor");
         guardar.setEnabled(true);
     }
 
