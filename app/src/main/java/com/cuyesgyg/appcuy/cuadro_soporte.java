@@ -52,16 +52,9 @@ public class cuadro_soporte {
             @Override
             public void onClick(View v) {
 
-                /*String phoneNo =numero;
-                if(!TextUtils.isEmpty(phoneNo)) {
-                    String dial = phoneNo;
-                    startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
-                }*/
-
-
-                /*Intent i = new Intent(android.content.Intent.ACTION_CALL,
-                        Uri.parse("tel:0000000"));
-                startActivity(Contexto, i, Bundle.EMPTY);*/
+                Uri number = Uri.parse("tel:"+numero);
+                Intent callIntent = new Intent(Intent.ACTION_DIAL,number);
+                Contexto.startActivity(callIntent);
 
             }
 
