@@ -31,6 +31,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.cuyesgyg.appcuy.cuadro_dialogo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,12 +57,15 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
     private String v_login;
     View vista;
 
+    Fragmento_recria contexto;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        contexto = this;
+
         cargarpreferencias();
 
         vista=inflater.inflate(R.layout.fragmento_recria, container, false);
@@ -140,14 +144,13 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         }
         else {
             if (aux == 1) {
-                Toast.makeText(getContext(), "La poza no cuenta con cuyes en RECRIA ", Toast.LENGTH_SHORT).show();
+                new cuadro_dialogo(getContext(), "La poza no cuenta con cuyes de RECRIA");
                 buscar.setEnabled(true);
                 limpiar.setEnabled(true);
                 actualizar.setEnabled(false);
             }
             else{
-                Toast.makeText(getContext(), "No se pudo conectar con el servidor " + error.toString(), Toast.LENGTH_SHORT).show();
-                Log.i("Error", error.toString());
+                new cuadro_dialogo (getContext(), "No se pudo conectar con el servidor");
                 buscar.setEnabled(true);
                 limpiar.setEnabled(false);
                 actualizar.setEnabled(false);
@@ -299,8 +302,7 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             aux=2;
         }
         else
-            Toast.makeText(getContext(),"Debes ingresar todo los datos", Toast.LENGTH_SHORT).show();
-
+            new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
     }
 
     private void limpiarwebservices() {
@@ -341,7 +343,7 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             limpiar.setEnabled(true);
         }
         else{
-            Toast.makeText(getContext(),"Debes ingresar los datos necesarios", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo (getContext(), "Debes ingresar los datos necesarios");
             poza.setEnabled(true);
             sexo.setEnabled(true);
         }
@@ -393,9 +395,8 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         }
 
         else{
-            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
-        }
-
+            new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
+            }
 
     }
 

@@ -20,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.Buscar_reproductor;
 import com.cuyesgyg.appcuy.R;
+import com.cuyesgyg.appcuy.cuadro_dialogo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,15 +49,13 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
 
     View vista;
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
-        super.onViewCreated(view, savedInstanceState);
-
-    }
+    Fragmento_reproductor contexto;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        contexto = this;
 
         vista = inflater.inflate(R.layout.fragmento_reproductor, container, false);
 
@@ -180,7 +179,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             aux=2;
         }
         else
-            Toast.makeText(getContext(),"Debes ingresar todo los datos", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo(getContext(), "Debes ingresar todo los datos");
     }
 
 
@@ -197,7 +196,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             limpiar_re.setEnabled(true);
         }
         else
-            Toast.makeText(getContext(),"Debes ingresar el codigo", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo(getContext(), "Debes ingresar el codigo");
     }
 
     private void cargarwebservices() {
@@ -233,8 +232,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             request.add(jsonObjectRequest);
         }
         else{
-            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
-
+            new cuadro_dialogo(getContext(), "Debe ingresar todo los datos");
         }
     }
 
@@ -254,8 +252,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             aux=0;
         }
         else{
-            Toast.makeText(getContext(),"No se pudo conectar con el servidor "+error.toString(), Toast.LENGTH_SHORT).show();
-            Log.i("Error",error.toString());
+            new cuadro_dialogo(getContext(), "No de pudo conectar con el servidor");
         }
     }
 
