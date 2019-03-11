@@ -121,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     public void guardarsesion(){
         SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCES, Context.MODE_PRIVATE);
-        //preferences.edit().putBoolean(PREFERENCES_ESTADO_SESION,recordar.isChecked()).apply();
         preferences.edit().putBoolean(PREFERENCES_ESTADO_SESION,true).apply();
     }
 
