@@ -370,9 +370,6 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             codigo_re.requestFocus();
         }
 
-
     }
-
-
 
 }
