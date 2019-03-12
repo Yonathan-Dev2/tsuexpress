@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -64,7 +66,15 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         ingresar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cargarwebservices();
+                    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        cargarwebservices();
+                    } else {
+                        new cuadro_dialogo(contexto,"No hay conexión a Internet en este momento");
+                    }
+
                 }
         });
 
