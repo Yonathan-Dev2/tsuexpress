@@ -365,7 +365,6 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             sexo_re.setSelection(0);
             raza_re.setSelection(0);
             estado_re.setSelection(0);
-            //foto.setImageDrawable(null);
             codigo_re.setText("");
             codigo_re.requestFocus();
         }

@@ -116,17 +116,9 @@ public class menu extends AppCompatActivity
 
 
         if (id == R.id.menreproductores) {
-            // Handle the camera action
-            /*Intent i = new Intent(getApplicationContext(), registrar_reproductores.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
-            startActivity(i);*/
             CargarFragmento(new Fragmento_reproductor());
 
-
         } else if (id == R.id.mencrecimiento) {
-            /*Intent i = new Intent(getApplicationContext(),registrar_crecimiento.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
-            startActivity(i);*/
 
             CargarFragmento(new Fragmento_recria());
 
@@ -143,9 +135,6 @@ public class menu extends AppCompatActivity
             startActivity(i);
         }
         else if (id == R.id.mencontrol_nacimientos) {
-            /*Intent i = new Intent(getApplicationContext(),registrar_crias.class);
-            i.putExtra("parametro", v_login);//Pasamos el login para identificar al usuario
-            startActivity(i);*/
 
             CargarFragmento(new Fragmento_crias());
         }

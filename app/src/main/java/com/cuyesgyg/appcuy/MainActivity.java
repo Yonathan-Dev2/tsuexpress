@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     private ProgressDialog pd = null;
     String link = "https://cuyesgyg.com/intranet/webservices/consultar_usuarios.php?";
 
-
     Context contexto;
 
     @Override
