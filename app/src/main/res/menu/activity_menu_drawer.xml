@@ -22,15 +22,15 @@
          <item
             android:id="@+id/mencontrol_nacimientos"
             android:icon="@android:drawable/ic_menu_add"
-            android:title="CRIAS" />
+            android:title="CRIA" />
         <item
             android:id="@+id/mencrecimiento"
             android:icon="@android:drawable/ic_menu_add"
-            android:title="RECRIAS" />
+            android:title="RECRIA" />
         <item
             android:id="@+id/menreproductores"
             android:icon="@android:drawable/ic_menu_add"
-            android:title="REPRODUCTORES" />
+            android:title="REPRODUCTOR" />
 
     </group>
         </menu>
@@ -75,22 +75,19 @@
             <item
                 android:id="@+id/consu_control_nacimientos"
                 android:icon="@android:drawable/ic_menu_search"
-                android:title="CRIAS" />
+                android:title="CRIA" />
             <item
                 android:id="@+id/consu_crecimiento"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="RECRIA" />
-
             <item
                 android:id="@+id/consu_reproductores"
                 android:icon="@android:drawable/ic_menu_search"
-                android:title="REPRODUCTORES" />
-
+                android:title="REPRODUCTOR" />
             <item
                 android:id="@+id/consu_total_cuyes"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="TOTAL CUYES" />
-
         </menu>
         </group>
     </item>
@@ -115,7 +112,5 @@
         </menu>
         </group>
     </item>
-
-
 
 </menu>

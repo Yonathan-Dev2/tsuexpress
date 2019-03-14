@@ -1,9 +1,12 @@
-package com.cuyesgyg.appcuy;
+package com.cuyesgyg.appcuy.Fragmentos;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -15,13 +18,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.cuyesgyg.appcuy.R;
 
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ingresos extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener{
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Fragmento_ingreso extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
 
     Spinner producto;
     EditText cantidad, precio, total;
@@ -33,21 +40,26 @@ public class ingresos extends AppCompatActivity implements Response.Listener<JSO
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingresos);
+    View vista;
+    Fragmento_recria contexto;
 
-        producto = (Spinner)(findViewById(R.id.spnproducto));
-        cantidad=(EditText)(findViewById(R.id.edtcantidad));
-        precio = (EditText)(findViewById(R.id.edtprecio));
-        total  = (EditText)(findViewById(R.id.edttotal));
-        guardar = (Button)(findViewById(R.id.btnguardar_re));
-        calcular = (Button)(findViewById(R.id.btncalcular));
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        vista = inflater.inflate(R.layout.fragmento_ingreso, container, false);
+
+        producto = (Spinner) vista.findViewById(R.id.spnproducto);
+        cantidad=(EditText)vista.findViewById(R.id.edtcantidad);
+        precio = (EditText)vista.findViewById(R.id.edtprecio);
+        total  = (EditText)vista.findViewById(R.id.edttotal);
+        guardar = (Button)vista.findViewById(R.id.btnguardar_re);
+        calcular = (Button)vista.findViewById(R.id.btncalcular);
         cantidad.requestFocus();
         total.setEnabled(false);
 
-        request= Volley.newRequestQueue(getBaseContext());
+        request= Volley.newRequestQueue(getContext());
 
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,33 +69,20 @@ public class ingresos extends AppCompatActivity implements Response.Listener<JSO
 
             }
         });
-        
+
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cargarwebservices();
+                guardaringreso();
             }
 
-            
+
         });
-        
-        
-        
+
+        return vista;
     }
 
-    private void calculare() {
-
-        if (!precio.getText().toString().equalsIgnoreCase("")  && !cantidad.getText().toString().equalsIgnoreCase("")){
-            recu_total=Integer.parseInt(cantidad.getText().toString())* Float.parseFloat(precio.getText().toString()) ;
-            total.setText("S/. "+String.valueOf(recu_total));
-        }
-        else{
-            Toast.makeText(getBaseContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    private void cargarwebservices() {
+    private void guardaringreso() {
 
         String fecha_detalle=null;
         Date fecha = new Date();
@@ -106,27 +105,37 @@ public class ingresos extends AppCompatActivity implements Response.Listener<JSO
             guardar.setEnabled(false);
         }
         else{
-            Toast.makeText(getBaseContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getBaseContext(),"No se pudo conectar con sel servidor "+error.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("Error",error.toString());
-        guardar.setEnabled(true);
+    private void calculare() {
+
+        if (!precio.getText().toString().equalsIgnoreCase("")  && !cantidad.getText().toString().equalsIgnoreCase("")){
+            recu_total=Integer.parseInt(cantidad.getText().toString())* Float.parseFloat(precio.getText().toString()) ;
+            total.setText("S/. "+String.valueOf(recu_total));
+        }
+        else{
+            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
+        }
+        
     }
 
     @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(getContext(),"No se pudo conectar con sel servidor "+error.toString(), Toast.LENGTH_SHORT).show();
+        Log.i("Error",error.toString());
+        guardar.setEnabled(true);
+    }
+    @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(getBaseContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
         producto.setSelection(0);
         cantidad.setText("");
         precio.setText("");
         total.setText("");
         cantidad.requestFocus();
         guardar.setEnabled(true);
-
     }
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias">
+    tools:context="com.cuyesgyg.appcuy.Fragmentos.Fragmento_gasto">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -11,21 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edtpoza_re"
+        <Spinner
+            android:id="@+id/spnproducto_2"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
             android:background="@drawable/color_edt_verde"
-            android:ems="10"
-            android:hint=" POZA"
-            android:inputType="number"
+            android:entries="@array/gastos"
+            android:spinnerMode="dialog"
             app:layout_constraintBottom_toTopOf="@+id/edtcantidad"
-            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
@@ -33,7 +29,6 @@
             android:id="@+id/edtcantidad"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -42,102 +37,71 @@
             android:ems="10"
             android:hint=" CANTIDAD"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/spnestado_cri"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/edtprecio" />
 
         <EditText
-            android:id="@+id/edtfecha_control"
+            android:id="@+id/edtprecio"
             android:layout_width="350dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/color_edt_verde"
+            android:ems="10"
+            android:hint=" PRECIO"
+            android:inputType="numberDecimal"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/edttotal" />
+
+        <EditText
+            android:id="@+id/edttotal"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/color_edt_rosado"
             android:ems="10"
-            android:hint=" FECHA"
-            android:inputType="textPersonName|date"
-            app:layout_constraintBottom_toTopOf="@+id/edtobservacion"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <EditText
-            android:id="@+id/edtobservacion"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="83dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:ems="10"
-            android:hint=" OBSERVACION"
+            android:hint=" TOTAL"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btnbuscar_re"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="145dp"
+            app:layout_constraintBottom_toTopOf="@+id/btncalcular" />
 
-        <Spinner
-            android:id="@+id/spnestado_cri"
+        <Button
+            android:id="@+id/btncalcular"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:entries="@array/estado_cri"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toTopOf="@+id/edtfecha_control"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <Button
-            android:id="@+id/btnbuscar_re"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/border_boton_verde"
-            android:text="BUSCAR"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btnlimpiar_re"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <Button
-            android:id="@+id/btnlimpiar_re"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/border_boton_verde"
-            android:text="LIMPIAR"
+            android:text="CALCULAR"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnguardar_re"
-            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/btnguardar_re"
             android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -148,9 +112,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
     </android.support.constraint.ConstraintLayout>
-
 </FrameLayout>

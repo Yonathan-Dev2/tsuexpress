@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
+import com.cuyesgyg.appcuy.Fragmentos.Fragmento_gasto;
+import com.cuyesgyg.appcuy.Fragmentos.Fragmento_ingreso;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_recria;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_reproductor;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_soporte;
@@ -127,12 +129,11 @@ public class menu extends AppCompatActivity
             CargarFragmento(new Fragmento_recria());
 
         } else if (id == R.id.meningresos) {
-            Intent i = new Intent(getApplicationContext(),ingresos.class);
-            startActivity(i);
+
+            CargarFragmento(new Fragmento_ingreso());
 
         } else if (id == R.id.mengastos) {
-            Intent i = new Intent(getApplicationContext(),gastos.class);
-            startActivity(i);
+            CargarFragmento(new Fragmento_gasto());
 
         }else if (id == R.id.mentermohigrometro) {
             Intent i = new Intent(getApplicationContext(),registrar_termohigrometro.class);
