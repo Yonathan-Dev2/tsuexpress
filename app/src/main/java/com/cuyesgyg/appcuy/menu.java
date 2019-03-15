@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cuyesgyg.appcuy.Fragmentos.Fragmento_capital;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_gasto;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_ingreso;
@@ -63,13 +64,18 @@ public class menu extends AppCompatActivity
         correo_nav.setText(v_correo);
         usario_nav.setText(v_nomb_apel);
 
-        if (v_cargo.equalsIgnoreCase("APO")){
-            //navigationView.getMenu().findItem(R.id.mengastos).setVisible(false);
+        //PERMISOS GENERALES
+        navigationView.getMenu().findItem(R.id.men_ingre_capital).setVisible(false);
 
+        if (v_cargo.equalsIgnoreCase("APO")){
             navigationView.getMenu().setGroupVisible(R.id.grupo_regi_tecn,false);
             navigationView.getMenu().setGroupVisible(R.id.grupo_repo_prod, false);
             navigationView.getMenu().setGroupVisible(R.id.grupo_repo_tecn, false);
         }
+        if (v_cargo.equalsIgnoreCase("SIS")){
+            navigationView.getMenu().findItem(R.id.men_ingre_capital).setVisible(true);
+        }
+
 
 
     }
@@ -186,10 +192,13 @@ public class menu extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), menu.class);
             startActivity(i);
         }
-
         else if (id == R.id.soporte_tecnico) {
             CargarFragmento(new Fragmento_soporte());
         }
+        else if (id == R.id.men_ingre_capital) {
+            CargarFragmento(new Fragmento_capital());
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -113,4 +113,16 @@
         </group>
     </item>
 
+    <item android:title="ADMINISTRACION">
+        <group android:checkableBehavior="single" android:id="@+id/grupo_admi_datos">
+            <menu>
+                <item
+                    android:id="@+id/men_ingre_capital"
+                    android:icon="@android:drawable/ic_menu_search"
+                    android:title="CAPITAL" />
+
+            </menu>
+        </group>
+    </item>
+
 </menu>

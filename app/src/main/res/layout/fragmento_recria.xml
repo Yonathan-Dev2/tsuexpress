@@ -11,62 +11,140 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edtpoza_crec"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
+        <LinearLayout
+            android:layout_width="295dp"
+            android:layout_height="358dp"
+            android:orientation="horizontal"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnbuscar_crec"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:ems="10"
-            android:hint=" POZA"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/spnsexo_crec"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent">
 
-        <EditText
-            android:id="@+id/edtcantidad_crec"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:ems="10"
-            android:hint=" CANTIDAD"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/edtfechaini_crec"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/color_edt_rosado">
 
-        <Spinner
-            android:id="@+id/spnsexo_crec"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:entries="@array/sexo"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toTopOf="@+id/edtcantidad_crec"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+                <EditText
+                    android:id="@+id/edtpoza_crec"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_verde"
+                    android:ems="10"
+                    android:hint=" POZA"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/spnsexo_crec"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtfechaini_crec"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_rosado"
+                    android:ems="10"
+                    android:hint=" FECHA INICIO DE RECRIA"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/edtpeso"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spnsexo_crec"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_verde"
+                    android:entries="@array/sexo"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintBottom_toTopOf="@+id/edtcantidad_crec"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtcantidad_crec"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_verde"
+                    android:ems="10"
+                    android:hint=" CANTIDAD"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/edtfechaini_crec"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtpeso"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_verde"
+                    android:ems="10"
+                    android:hint=" PESO (g)"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/edtfechafin_crec"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtfechafin_crec"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/color_edt_rosado"
+                    android:ems="10"
+                    android:hint=" FECHA FIN DE RECRIA"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.482"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnguardar_crec"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             android:background="@drawable/border_boton_verde"
             android:text="GUARDAR"
             android:textAlignment="center"
@@ -77,44 +155,15 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <EditText
-            android:id="@+id/edtfechaini_crec"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_rosado"
-            android:ems="10"
-            android:hint=" FECHA INICIO DE RECRIA"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/edtpeso"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <EditText
-            android:id="@+id/edtfechafin_crec"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="22dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_rosado"
-            android:ems="10"
-            android:hint=" FECHA FIN DE RECRIA"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btnbuscar_crec"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
         <Button
             android:id="@+id/btnbuscar_crec"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             android:background="@drawable/border_boton_verde"
             android:text="BUSCAR"
             android:textAlignment="center"
@@ -130,8 +179,10 @@
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             android:background="@drawable/border_boton_verde"
             android:text="ACTUALIZAR"
             android:textAlignment="center"
@@ -147,8 +198,10 @@
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
             android:background="@drawable/border_boton_verde"
             android:text="Limpiar"
             android:textAlignment="center"
@@ -159,20 +212,5 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <EditText
-            android:id="@+id/edtpeso"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/color_edt_verde"
-            android:ems="10"
-            android:hint=" PESO (g)"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/edtfechafin_crec"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
