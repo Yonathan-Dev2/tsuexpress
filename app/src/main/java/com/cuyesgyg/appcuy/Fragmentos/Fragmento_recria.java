@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.volley.Response;
+import com.cuyesgyg.appcuy.Alertas;
 import com.cuyesgyg.appcuy.Buscar_crecimiento;
 import com.cuyesgyg.appcuy.R;
 
@@ -215,8 +216,21 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             aux=0;
         }
         else{
+            //ALgoritmo cuando se registra correctamente la RECRIA envia el mensaje desde el WebServices con JSON
+            Alertas miAlerta = new Alertas();
+            JSONArray json = response.optJSONArray("mensaje");
+            JSONObject jsonObject=null;
 
-            Toast.makeText(getContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+            try {
+                jsonObject=json.getJSONObject(0);
+                miAlerta.setMensaje(jsonObject.optString("msn"));
+                new cuadro_dialogo (getContext(), miAlerta.getMensaje());
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+
+            }
+
             poza.setText("");
             sexo.setSelection(0);
             cantidad.setText("");
@@ -356,8 +370,6 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         recu_sexo=sexo.getSelectedItem().toString();
 
         String fecha_inicio_r=null;
-        String fecha_peso = null;
-
         Date fecha = new Date();
         SimpleDateFormat outSDF = new SimpleDateFormat("yyyy-MM-dd");
         fecha_inicio_r = outSDF.format(fecha);
@@ -366,8 +378,6 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         SimpleDateFormat ouSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         SimpleDateFormat oSDF = new SimpleDateFormat("yyyy-mm-dd");
-
-        fecha_peso = ouSDF.format(fecha);
 
         fecha_recu_fin =fecha_fin.getText().toString();
         String fecha_ar = "";
@@ -383,12 +393,11 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         }
 
         if (!poza.getText().toString().equalsIgnoreCase("") && !recu_sexo.equalsIgnoreCase("SEXO") && !cantidad.getText().toString().equalsIgnoreCase("")){
-            String url = "https://cuyesgyg.com/intranet/webservices/registrar_crecimiento.php?poza="+poza.getText().toString()+"&sexo="+recu_sexo+
+            String url = "https://cuyesgyg.com/intranet/webservices/registrar_recria.php?poza="+poza.getText().toString()+"&sexo="+recu_sexo+
                     "&cantidad="+cantidad.getText().toString()+"&fecha_inicio="+fecha_inicio_r+"&fecha_fin="+fecha_ar+"&peso="+peso.getText().toString()+
-                    "&fecha_peso="+fecha_peso+"&usuario="+v_login;
+                    "&usuario="+v_login;
 
             guardar.setEnabled(false);
-
             jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
             request.add(jsonObjectRequest);
 
@@ -412,6 +421,5 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         v_login = user;
 
     }
-
 
 }
