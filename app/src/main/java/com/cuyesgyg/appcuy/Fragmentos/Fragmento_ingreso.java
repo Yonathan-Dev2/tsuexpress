@@ -1,6 +1,8 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.R;
+import com.cuyesgyg.appcuy.cuadro_dialogo;
 
 import org.json.JSONObject;
 
@@ -36,18 +39,21 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
     float recu_total;
     Button guardar, calcular;
     double suma_capital=0;
-
+    String v_login;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
     View vista;
-    Fragmento_recria contexto;
+    Fragmento_ingreso contexto;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        contexto = this;
+        cargarpreferencias();
+
         vista = inflater.inflate(R.layout.fragmento_ingreso, container, false);
 
         producto = (Spinner) vista.findViewById(R.id.spnproducto);
@@ -84,11 +90,6 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
 
     private void guardaringreso() {
 
-        String fecha_detalle=null;
-        Date fecha = new Date();
-        SimpleDateFormat outSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        fecha_detalle = outSDF.format(fecha);
-
         recu_producto=producto.getSelectedItem().toString();
 
 
@@ -97,15 +98,14 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
             suma_capital = Double.parseDouble(cantidad.getText().toString())* Double.parseDouble(precio.getText().toString());
 
             String url = "https://cuyesgyg.com/intranet/webservices/registrar_comercializacion.php?producto="+recu_producto+"&detalle=Ingreso"+
-                    "&cantidad="+cantidad.getText().toString()+"&precio="+precio.getText().toString()+"&fecha_detalle="+fecha_detalle
-                    +"&capital="+suma_capital;
+                    "&cantidad="+cantidad.getText().toString()+"&precio="+precio.getText().toString()+"&capital="+suma_capital+"&usuario="+v_login;
 
             jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
             request.add(jsonObjectRequest);
             guardar.setEnabled(false);
         }
         else{
-            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo(getContext(), "Debes ingresar todo los datos");
         }
 
     }
@@ -130,6 +130,7 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
     }
     @Override
     public void onResponse(JSONObject response) {
+
         Toast.makeText(getContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
         producto.setSelection(0);
         cantidad.setText("");
@@ -138,4 +139,20 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
         cantidad.requestFocus();
         guardar.setEnabled(true);
     }
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_login = user;
+
+    }
+
+
+
 }

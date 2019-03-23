@@ -1,6 +1,8 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -36,17 +38,20 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
     float recu_total;
     Button guardar, calcular;
     Double resta_capital;
-
+    String v_login;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
     View vista;
-    Fragmento_recria contexto;
+    Fragmento_gasto contexto;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        contexto = this;
+        cargarpreferencias();
+
         vista = inflater.inflate(R.layout.fragmento_gasto, container, false);
 
         producto = (Spinner)vista.findViewById(R.id.spnproducto_2);
@@ -84,11 +89,6 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
 
     private void guardargasto() {
 
-        String fecha_detalle=null;
-        Date fecha = new Date();
-        SimpleDateFormat outSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        fecha_detalle = outSDF.format(fecha);
-
         recu_producto=producto.getSelectedItem().toString();
 
 
@@ -97,8 +97,7 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
             resta_capital = Double.parseDouble(cantidad.getText().toString())* Double.parseDouble(precio.getText().toString())*-1;
 
             String url = "https://cuyesgyg.com/intranet/webservices/registrar_comercializacion.php?producto="+recu_producto+"&detalle=Gastos"+
-                    "&cantidad="+cantidad.getText().toString()+"&precio="+precio.getText().toString()+"&fecha_detalle="+fecha_detalle
-                    +"&capital="+resta_capital;
+                    "&cantidad="+cantidad.getText().toString()+"&precio="+precio.getText().toString()+"&capital="+resta_capital+"&usuario="+v_login;
 
             jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
             request.add(jsonObjectRequest);
@@ -143,5 +142,19 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
         total.setText("");
         cantidad.requestFocus();
         guardar.setEnabled(true);
+    }
+
+
+    private void cargarpreferencias() {
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String user = preferences.getString("log","");
+        String pass = preferences.getString("pass","");
+        String nom_ape = preferences.getString("nom_ape","");
+        String corr = preferences.getString("corr","");
+        Boolean check = preferences.getBoolean("check",false);
+
+        v_login = user;
+
     }
 }
