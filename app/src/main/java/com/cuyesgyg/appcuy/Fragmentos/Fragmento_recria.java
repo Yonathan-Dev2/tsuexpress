@@ -17,10 +17,6 @@ import com.cuyesgyg.appcuy.R;
 
 import org.json.JSONObject;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,16 +24,13 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.cuadro_dialogo;
-
+import com.cuyesgyg.appcuy.cuadro_dialogo_afirmacion;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -140,7 +133,7 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             cantidad.setText("");
             peso.setText("");
             poza.requestFocus();
-            Toast.makeText(getContext(),"Se actualizo los datos correctamente", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo_afirmacion (getContext(), "Se actualizo los datos correctamente");
             aux=0;
         }
         else {

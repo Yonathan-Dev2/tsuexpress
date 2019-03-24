@@ -20,7 +20,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:background="@android:color/holo_green_dark"
+            android:background="@drawable/border_boton_verde"
             android:text="Guardar"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -130,31 +130,31 @@
             android:id="@+id/btnbuscar_re"
             android:layout_width="350dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:background="@android:color/holo_green_dark"
+            android:background="@drawable/border_boton_verde"
             android:text="Buscar"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btnlimpiar_re"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnlimpiar_re" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/btnactualizar_re"
             android:layout_width="350dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:background="@android:color/holo_green_dark"
+            android:background="@drawable/border_boton_verde"
             android:text="Actualizar"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btnguardar_re"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnguardar_re" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <EditText
             android:id="@+id/edtfecha_c_estado_re"
@@ -175,16 +175,16 @@
             android:id="@+id/btnlimpiar_re"
             android:layout_width="350dp"
             android:layout_height="40dp"
-            android:background="?attr/colorPrimary"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/border_boton_verde"
             android:text="Limpiar"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btnactualizar_re"
-            android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.Alertas;
 import com.cuyesgyg.appcuy.R;
 import com.cuyesgyg.appcuy.cuadro_dialogo;
+import com.cuyesgyg.appcuy.cuadro_dialogo_afirmacion;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -87,7 +88,7 @@ public class Fragmento_capital extends Fragment implements Response.Listener<JSO
         try {
             jsonObject=json.getJSONObject(0);
             miAlerta.setMensaje(jsonObject.optString("msn"));
-            Toast.makeText(getContext(),miAlerta.getMensaje(), Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo_afirmacion (getContext(), miAlerta.getMensaje());
             capital.setText("");
         } catch (JSONException e) {
             e.printStackTrace();

@@ -28,12 +28,12 @@ import java.util.Date;
 
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.cuyesgyg.appcuy.Consulta_control_nacimientos;
 import com.cuyesgyg.appcuy.R;
 import com.cuyesgyg.appcuy.cuadro_dialogo;
+import com.cuyesgyg.appcuy.cuadro_dialogo_afirmacion;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -244,8 +244,7 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
                 }
 
-
-                Toast.makeText(getContext(), "Se ha encontrado los datos de la poza", Toast.LENGTH_SHORT).show();
+                new cuadro_dialogo_afirmacion (getContext(), "Se ha encontrado los datos de la poza");
                 poza.requestFocus();
 
 
@@ -259,7 +258,7 @@ public class Fragmento_crias extends Fragment implements Response.Listener<JSONO
 
         //Para el boton guardar
         else {
-            Toast.makeText(getContext(), "Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo_afirmacion (getContext(), "Se ha registrado exitosamente");
             poza.setText("");
             cantidad.setText("");
             fecha_control.setText("");

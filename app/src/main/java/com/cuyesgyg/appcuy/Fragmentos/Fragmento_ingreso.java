@@ -22,11 +22,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.R;
 import com.cuyesgyg.appcuy.cuadro_dialogo;
+import com.cuyesgyg.appcuy.cuadro_dialogo_afirmacion;
 
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -117,21 +115,19 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
             total.setText("S/. "+String.valueOf(recu_total));
         }
         else{
-            Toast.makeText(getContext(),"Debe ingresar todo los datos", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo(getContext(), "Debes ingresar todo los datos");
         }
         
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getContext(),"No se pudo conectar con sel servidor "+error.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("Error",error.toString());
+        new cuadro_dialogo(getContext(), "No se pudo conectar con sel servidor ");
         guardar.setEnabled(true);
     }
     @Override
     public void onResponse(JSONObject response) {
-
-        Toast.makeText(getContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+        new cuadro_dialogo_afirmacion(getContext(), "Se ha registrado exitosamente");
         producto.setSelection(0);
         cantidad.setText("");
         precio.setText("");
@@ -152,7 +148,5 @@ public class Fragmento_ingreso extends Fragment implements Response.Listener<JSO
         v_login = user;
 
     }
-
-
 
 }

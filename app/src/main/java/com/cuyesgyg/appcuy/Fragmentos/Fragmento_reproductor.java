@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.cuyesgyg.appcuy.Buscar_reproductor;
 import com.cuyesgyg.appcuy.R;
 import com.cuyesgyg.appcuy.cuadro_dialogo;
+import com.cuyesgyg.appcuy.cuadro_dialogo_afirmacion;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -248,7 +249,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
             estado_re.setSelection(0);
             codigo_re.setText("");
             codigo_re.requestFocus();
-            Toast.makeText(getContext(),"Se actualizo los datos correctamente", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo_afirmacion(getContext(), "Se actualizo los datos correctamente");
             aux=0;
         }
         else{
@@ -358,7 +359,7 @@ public class Fragmento_reproductor extends Fragment implements Response.Listener
         }
 
         else{
-            Toast.makeText(getContext(),"Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+            new cuadro_dialogo_afirmacion(getContext(), "Se ha registrado exitosamente");
             poza_re.setText("");
             fecha_empadre_re.setText("");
             fecha_c_estado_re.setText("");

@@ -69,9 +69,13 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+                    //new cuadro_dialogo(contexto,"No hay conexión a Internet en este momento");
+                    //new progressbar(contexto,"Esta cargando");
+
                     if (networkInfo != null && networkInfo.isConnected()) {
                         cargarwebservices();
                     } else {
+
                         new cuadro_dialogo(contexto,"No hay conexión a Internet en este momento");
                     }
 
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
             jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
             request.add(jsonObjectRequest);
-
             this.pd = ProgressDialog.show(this, "Procesando", "Espere unos segundos...", true,false);
     }
 
@@ -217,6 +220,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
             pd.dismiss();
 
+            new progressbar(contexto,"Esta cargando");
             new cuadro_dialogo(contexto, "El usuario y/o contraseña son incorrectos");
 
         }
