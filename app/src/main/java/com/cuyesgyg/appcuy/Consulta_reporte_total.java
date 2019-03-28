@@ -4,7 +4,7 @@ package com.cuyesgyg.appcuy;
  * Created by Yonathan on 13/01/2019.
  */
 
-class Consulta_reporte_total {
+public class Consulta_reporte_total {
 
     private String total_crecimiento;
     private String total_reproductores;

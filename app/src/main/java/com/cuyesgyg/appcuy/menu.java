@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_capital;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_crias;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_gasto;
+import com.cuyesgyg.appcuy.Fragmentos.Fragmento_indicador_total;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_ingreso;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_recria;
 import com.cuyesgyg.appcuy.Fragmentos.Fragmento_reproductor;
@@ -174,8 +175,8 @@ public class menu extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), inventario.class);
             startActivity(i);
         } else if (id == R.id.consu_total_cuyes) {
-            Intent i = new Intent(getApplicationContext(), reporte_total.class);
-            startActivity(i);
+            CargarFragmento(new Fragmento_indicador_total());
+
         }
         else if (id == R.id.menforraje) {
             Intent i = new Intent(getApplicationContext(), registrar_forraje.class);

@@ -17,13 +17,11 @@ public class cuadro_dialogo {
 
     public cuadro_dialogo(Context Contexto, String msj) {
 
-
         final Dialog dialogo = new Dialog(Contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogo.setCancelable(false);
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogo.setContentView(R.layout.cuadro_dialogo);
-
         TextView mensaje = (TextView)dialogo.findViewById(R.id.txtprogress);
         mensaje.setText(msj);
         final Button cerrar = (Button)dialogo.findViewById(R.id.btn_ok);
