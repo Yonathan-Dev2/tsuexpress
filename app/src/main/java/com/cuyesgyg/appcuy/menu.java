@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -56,6 +58,11 @@ public class menu extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        //*********************************************************************************************
+        Fragment fragment = new Fragmento_indicador_total();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragmento,fragment).commit();
+        //*********************************************************************************************
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         hview = navigationView.getHeaderView(0);
         usario_nav = (TextView) hview.findViewById(R.id.txtnombre_user);
@@ -76,7 +83,6 @@ public class menu extends AppCompatActivity
         if (v_cargo.equalsIgnoreCase("SIS")){
             navigationView.getMenu().findItem(R.id.men_ingre_capital).setVisible(true);
         }
-
 
 
     }
@@ -174,11 +180,7 @@ public class menu extends AppCompatActivity
         } else if (id == R.id.meninventario) {
             Intent i = new Intent(getApplicationContext(), inventario.class);
             startActivity(i);
-        } else if (id == R.id.consu_total_cuyes) {
-            CargarFragmento(new Fragmento_indicador_total());
-
-        }
-        else if (id == R.id.menforraje) {
+        } else if (id == R.id.menforraje) {
             Intent i = new Intent(getApplicationContext(), registrar_forraje.class);
             startActivity(i);
         }
@@ -190,8 +192,7 @@ public class menu extends AppCompatActivity
         }
 
         else if (id == R.id.inicio) {
-            Intent i = new Intent(getApplicationContext(), menu.class);
-            startActivity(i);
+            CargarFragmento(new Fragmento_indicador_total());
         }
         else if (id == R.id.soporte_tecnico) {
             CargarFragmento(new Fragmento_soporte());

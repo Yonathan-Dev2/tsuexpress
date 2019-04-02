@@ -84,10 +84,6 @@
                 android:id="@+id/consu_reproductores"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="REPRODUCTOR" />
-            <item
-                android:id="@+id/consu_total_cuyes"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="TOTAL CUYES" />
         </menu>
         </group>
     </item>
