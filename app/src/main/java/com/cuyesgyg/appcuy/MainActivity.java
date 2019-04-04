@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -42,8 +44,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     Context contexto;
 
-    private progressbar pd = null;
-
+    ProgressDialog pdp = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,11 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
             request.add(jsonObjectRequest);
 
-             new progressbar(contexto,"Espere unos segundos...");
+            pdp = new ProgressDialog(this);
+            pdp.show();
+            pdp.setContentView(R.layout.progressbar);
+            pdp.setCancelable(false);
+            pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
     }
 
@@ -145,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        pdp.dismiss();
 
         if(recordar.isChecked()==true){
             guardarpreferencia();
@@ -156,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     @Override
     public void onResponse(JSONObject response) {
-
+        pdp.dismiss();
         Usuario miUsuario = new Usuario();
         JSONArray json = response.optJSONArray("usuarios");
         JSONObject jsonObject=null;

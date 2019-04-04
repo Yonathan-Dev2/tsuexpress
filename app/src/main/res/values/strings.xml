@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AppCuy</string>
 
+    <string name="loading">Espere unos segundos...</string>
+
     <string-array name="sexo">
         <item>SEXO</item>
         <item>HEMBRA</item>
