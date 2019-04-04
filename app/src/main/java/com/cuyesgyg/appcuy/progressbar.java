@@ -39,8 +39,6 @@ public class progressbar {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                //Intent i = new Intent(Contexto, MainActivity.class);
-                //Contexto.startActivity(i);
                 dialogo.dismiss();
             }
         };

@@ -92,10 +92,10 @@ public class Fragmento_indicador_total extends Fragment implements Response.List
     @Override
     public void onResponse(JSONObject response) {
 
-        msnreproductores.setText("REPRODUCTORES :");
-        msncrecimiento.setText("RECRIA :");
-        msncrias.setText("CRIAS :");
-        msntotal.setText("TOTAL :");
+        msnreproductores.setText("REPRODUCTORES");
+        msncrecimiento.setText("RECRIA");
+        msncrias.setText("CRIAS");
+        msntotal.setText("TOTAL");
 
 
         Consulta_reporte_total miConsulta = new Consulta_reporte_total();
