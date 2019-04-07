@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             pdp.setContentView(R.layout.progressbar);
             pdp.setCancelable(false);
             pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
     }
 
     private void cargarpreferencias() {

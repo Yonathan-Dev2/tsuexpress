@@ -1,8 +1,11 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -44,6 +47,8 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
 
     View vista;
     Fragmento_gasto contexto;
+
+    ProgressDialog pdp = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,6 +113,12 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
             new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
         }
 
+        pdp = new ProgressDialog(getContext());
+        pdp.show();
+        pdp.setContentView(R.layout.progressbar);
+        pdp.setCancelable(false);
+        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
     }
 
     private void calculare() {
@@ -125,12 +136,14 @@ public class Fragmento_gasto extends Fragment implements Response.Listener<JSONO
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        pdp.dismiss();
         new cuadro_dialogo (getContext(), "No se pudo conectar con sel servidor");
         guardar.setEnabled(true);
     }
 
     @Override
     public void onResponse(JSONObject response) {
+        pdp.dismiss();
         new cuadro_dialogo_afirmacion (getContext(), "Se ha registrado exitosamente");
         producto.setSelection(0);
         cantidad.setText("");

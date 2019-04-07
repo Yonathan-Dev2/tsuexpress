@@ -1,8 +1,11 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -52,6 +55,8 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
     View vista;
 
     Fragmento_recria contexto;
+
+    ProgressDialog pdp = null;
 
 
     @Override
@@ -118,13 +123,10 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
     }
 
 
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
-        super.onViewCreated(view, savedInstanceState);
-
-    }
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        pdp.dismiss();
         if (aux==2){
             poza.setText("");
             fecha_fin.setText("");
@@ -155,6 +157,7 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
 
     @Override
     public void onResponse(JSONObject response) {
+        pdp.dismiss();
 
         if(aux==1){
             Buscar_crecimiento miCrecimiento = new Buscar_crecimiento();
@@ -310,6 +313,14 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         }
         else
             new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
+
+        pdp = new ProgressDialog(getContext());
+        pdp.show();
+        pdp.setContentView(R.layout.progressbar);
+        pdp.setCancelable(false);
+        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
     }
 
     private void limpiarwebservices() {
@@ -355,6 +366,12 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             sexo.setEnabled(true);
         }
 
+        pdp = new ProgressDialog(getContext());
+        pdp.show();
+        pdp.setContentView(R.layout.progressbar);
+        pdp.setCancelable(false);
+        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
     }
 
     private void guardarwebservices() {
@@ -399,6 +416,12 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
         else{
             new cuadro_dialogo (getContext(), "Debes ingresar todo los datos");
             }
+
+        pdp = new ProgressDialog(getContext());
+        pdp.show();
+        pdp.setContentView(R.layout.progressbar);
+        pdp.setCancelable(false);
+        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
     }
 
