@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -183,6 +181,9 @@ public class menu extends AppCompatActivity
         } else if (id == R.id.menforraje) {
             Intent i = new Intent(getApplicationContext(), registrar_forraje.class);
             startActivity(i);
+        } else if (id == R.id.men_qr) {
+            Intent i = new Intent(getApplicationContext(), qr.class);
+            startActivity(i);
         }
         else if (id == R.id.cerrar_sesion) {
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -190,7 +191,6 @@ public class menu extends AppCompatActivity
             guardarsesion();
             finish();
         }
-
         else if (id == R.id.inicio) {
             CargarFragmento(new Fragmento_indicador_total());
         }

@@ -16,8 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"></activity>
-
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".registrar_reproductores"
             android:label="REGISTO REPRODUCTORES" />
@@ -78,6 +74,7 @@
         <activity
             android:name=".registrar_forraje"
             android:label="REGISTRO FORRAJE" />
+        <activity android:name=".qr"></activity>
     </application>
 
 </manifest>

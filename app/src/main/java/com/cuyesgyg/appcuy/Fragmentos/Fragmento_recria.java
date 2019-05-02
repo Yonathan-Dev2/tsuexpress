@@ -359,23 +359,22 @@ public class Fragmento_recria extends Fragment implements Response.Listener<JSON
             guardar.setEnabled(false);
             actualizar.setEnabled(true);
             limpiar.setEnabled(true);
+
+            pdp = new ProgressDialog(getContext());
+            pdp.show();
+            pdp.setContentView(R.layout.progressbar);
+            pdp.setCancelable(false);
+            pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         }
         else{
             new cuadro_dialogo (getContext(), "Debes ingresar los datos necesarios");
             poza.setEnabled(true);
             sexo.setEnabled(true);
         }
-
-        pdp = new ProgressDialog(getContext());
-        pdp.show();
-        pdp.setContentView(R.layout.progressbar);
-        pdp.setCancelable(false);
-        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
     }
 
     private void guardarwebservices() {
-
 
         recu_sexo=sexo.getSelectedItem().toString();
 
