@@ -1,10 +1,18 @@
 package com.cuyesgyg.appcuy;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +30,8 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class qr extends AppCompatActivity {
 
@@ -30,7 +40,10 @@ public class qr extends AppCompatActivity {
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     private String token = "";
     private String tokenanterior = "";
+
     TextView mensajeQR;
+    TextView mensaje1;
+    TextView mensaje2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +54,10 @@ public class qr extends AppCompatActivity {
         mensajeQR = (TextView)findViewById(R.id.txtmensajeandroid);
 
         initQR();
+
+        mensaje1 = (TextView) findViewById(R.id.mensaje_id);
+        mensaje2 = (TextView) findViewById(R.id.mensaje_id2);
+
     }
 
     public void initQR() {
@@ -130,7 +147,6 @@ public class qr extends AppCompatActivity {
 
                             startActivity(shareIntent);
                         }
-
                         new Thread(new Runnable() {
                             public void run() {
                                 try {
@@ -150,8 +166,8 @@ public class qr extends AppCompatActivity {
                 }
             }
         });
-
     }
+
 
 
 
