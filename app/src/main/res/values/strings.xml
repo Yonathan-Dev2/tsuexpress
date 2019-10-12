@@ -16,6 +16,7 @@
         <item>INTI</item>
         <item>MANTARO</item>
         <item>PERU</item>
+        <item>OTRO</item>
     </string-array>
 
     <string-array name="raza_consu">

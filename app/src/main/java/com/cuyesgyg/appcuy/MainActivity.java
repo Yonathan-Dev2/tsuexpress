@@ -6,17 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     CheckBox recordar;
     public static final String STRING_PREFERENCES = "DatosUsuario";
     public static final String PREFERENCES_ESTADO_SESION = "EstadoSesion";
+    Boolean reachable;
+
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -52,11 +52,12 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        contexto = this;
+        //isOnlineNet();
 
         if(obtenersesion()){
             Intent i = new Intent(getApplicationContext(), menu.class);
             startActivity(i);
+            contexto = this;
             finish();
         }
 
@@ -68,18 +69,17 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         request= Volley.newRequestQueue(getBaseContext());
 
         ingresar.setOnClickListener(new View.OnClickListener() {
-                @Override
+
+            @Override
                 public void onClick(View v) {
-                    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                //isOnlineNet();
 
-
-                    if (networkInfo != null && networkInfo.isConnected()) {
-                        cargarwebservices();
-                    } else {
-
-                        new cuadro_dialogo(contexto,"No hay conexión a Internet en este momento");
-                    }
+                if (isNetDisponible()) {
+                    cargarwebservices();
+                } else {
+                    Toast.makeText(getBaseContext(), "No hay conexion a Internet.",Toast.LENGTH_SHORT).show();
+                    //new cuadro_dialogo(getBaseContext(),"No hay conexión a Internet en este momento");
+                }
 
                 }
         });
@@ -88,6 +88,15 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     }
 
+
+    private boolean isNetDisponible() {
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo actNetInfo = connectivityManager.getActiveNetworkInfo();
+
+        return (actNetInfo != null && actNetInfo.isConnected());
+    }
 
     private void cargarwebservices() {
             String url = link+"login="+login.getText().toString()+"&clave="+clave.getText().toString();
@@ -162,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     @Override
     public void onResponse(JSONObject response) {
-        pdp.dismiss();
+
         Usuario miUsuario = new Usuario();
         JSONArray json = response.optJSONArray("usuarios");
         JSONObject jsonObject=null;
@@ -226,6 +235,26 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
             new cuadro_dialogo(contexto, "El usuario y/o contraseña son incorrectos");
 
         }
+
+        pdp.dismiss();
+    }
+
+
+    public Boolean isOnlineNet() {
+
+
+        reachable  = false;
+        try {
+            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com");
+            int val = p.waitFor();
+            if (val==1){
+                reachable = true;
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return reachable;
     }
 
 

@@ -1,7 +1,11 @@
 package com.cuyesgyg.appcuy.Fragmentos;
 
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,13 +35,15 @@ public class Fragmento_indicador_total extends Fragment implements Response.List
 
     TextView crias, reproductores, crecimiento, total;
     TextView msncrias, msnreproductores, msncrecimiento, msntotal;
-    Button mostrar;
+    ConstraintLayout cons_indi;
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
     View vista;
     Fragmento_indicador_total contexto;
+
+    ProgressDialog pdp = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,14 +57,23 @@ public class Fragmento_indicador_total extends Fragment implements Response.List
         reproductores = (TextView)vista.findViewById(R.id.txtreproductores_rt);
         crecimiento = (TextView)vista.findViewById(R.id.txtcrecimiento_rt);
         total = (TextView)vista.findViewById(R.id.txttotal_rt);
+        cons_indi = (ConstraintLayout)vista.findViewById(R.id.cons_indi);
+
 
         msncrias = (TextView) vista.findViewById(R.id.txtmsncrias_rt);
         msnreproductores = (TextView) vista.findViewById(R.id.txtmsnreproductores_rt);
         msncrecimiento = (TextView)vista.findViewById(R.id.txtmsncrecimiento_rt);
         msntotal = (TextView)vista.findViewById(R.id.txtmsntotal_rt);
 
+        cons_indi.setVisibility(View.INVISIBLE);
         request= Volley.newRequestQueue(getContext());
 
+
+        pdp = new ProgressDialog(getContext());
+        pdp.show();
+        pdp.setContentView(R.layout.progressbar);
+        pdp.setCancelable(false);
+        pdp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mostrarindicador();
 
         return vista;
@@ -84,14 +99,15 @@ public class Fragmento_indicador_total extends Fragment implements Response.List
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
         Toast.makeText(getContext(),"No se pudo conectar con sel servidor "+error.toString(), Toast.LENGTH_SHORT).show();
         Log.i("Error",error.toString());
+        pdp.dismiss();
     }
 
     @Override
     public void onResponse(JSONObject response) {
 
+        cons_indi.setVisibility(View.VISIBLE);
         msnreproductores.setText("REPRODUCTORES");
         msncrecimiento.setText("RECRIA");
         msncrias.setText("CRIAS");
@@ -114,14 +130,17 @@ public class Fragmento_indicador_total extends Fragment implements Response.List
             miConsulta.setTotal_crias(jsonObject.optString("cantidad"));
 
 
+            reproductores.setText(miConsulta.getTotal_reproductores());
+            crecimiento.setText(miConsulta.getTotal_crecimiento());
+            crias.setText(miConsulta.getTotal_crias());
+
+            total.setText(String.valueOf(Integer.parseInt(miConsulta.getTotal_crias()) + Integer.parseInt(miConsulta.getTotal_crecimiento()) + Integer.parseInt(miConsulta.getTotal_reproductores())) );
+            pdp.dismiss();
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        reproductores.setText(miConsulta.getTotal_reproductores());
-        crecimiento.setText(miConsulta.getTotal_crecimiento());
-        crias.setText(miConsulta.getTotal_crias());
 
-        total.setText(String.valueOf(Integer.parseInt(miConsulta.getTotal_crias()) + Integer.parseInt(miConsulta.getTotal_crecimiento()) + Integer.parseInt(miConsulta.getTotal_reproductores())) );
     }
 }

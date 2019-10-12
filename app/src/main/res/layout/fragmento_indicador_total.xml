@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
     tools:context="com.cuyesgyg.appcuy.Fragmentos.Fragmento_indicador_total">
 
     <!-- TODO: Update blank fragment layout -->
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_indi"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/color_edt_rosado"
